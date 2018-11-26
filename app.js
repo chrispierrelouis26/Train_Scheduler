@@ -1,6 +1,5 @@
 console.log("hey");
-
-
+console.log(moment())
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyDt5IAbDJIcr3i8f3iaenNA76EcX4TCT9k",
@@ -15,70 +14,54 @@ firebase.initializeApp(config);
   var database = firebase.database();
 
 
+  var trainName = "";
+  var destination = "";
+  var trainTime = "";
+  var frequency = "";
   var clickCounter = 0;
 
-  $("#button").on("click", function (){
+  $(".btn").on("click", function (){
+    event.preventDefault();
 
-   clickCounte++;
+    trainName = $("#TrainName").val().trim();
+    destination = $("#destination").val().trim();
+    frequency = $("#frequency").val().trim();
+    firstTime = $("#trainTime").val().trim();
 
-    database.ref().set({
-      clickCount: clickCounter
+
+   clickCounter++;
+
+    database.ref().push({
+      "trainName": trainName,
+      "destination": destination,
+      "frequency": frequency,
+      "firstTime": firstTime,
+
     });
   });
 
-//   var trainName = "";
-//   var destination = "";
-//   var firstTrain = "";
-//   var frequency = "";
 
-
-
-//     database.ref("/train_name").on("value", function (snapshot) {
+    database.ref().on("child_added", function (snapshot) {
         
-       
-       
-//        console.log( snapshot.val().train_name);
+       console.log( snapshot.val().trainName);
 
-//         var myTableRow = $("<tr>");
-//         var myTable1 = $("<td>"+ snapshot.val().train_name+"</td>");
-//         var myTable2 = $("<td>"+  snapshot.val().train_destination+"</td>");
-//         var myTable3 = $("<td>"+ snapshot.val().train_firstTrain+"</td>");
-//         var myTable4 = $("<td>"+ snapshot.val().train_frequency+"</td>");
+        var myTableRow = $("<tr>");
+        var myTable1 = $("<td>"+ snapshot.val().trainName+"</td>");
+        var myTable2 = $("<td>"+ snapshot.val().destination+"</td>");
+        var myTable3 = $("<td>"+ snapshot.val().frequency+"</td>");
+        var myTable4 = $("<td>"+ snapshot.val().trainTime+"</td>");
 
-//         myTableRow.append(myTable1);
-//         myTableRow.append(myTable2);
-//         myTableRow.append(myTable3);
-//         myTableRow.append(myTable4);
+        myTableRow.append(myTable1);
+        myTableRow.append(myTable2);
+        myTableRow.append(myTable3);
+        myTableRow.append(myTable4);
 
 
-// $("#target").append(myTableRow);
+$("#target").append(myTableRow);
 
 
 
 
-//     });
+    });
   
-
-//     $(document).ready(function () {
-
-
-//         $(".btn").on("click", function (e) {
-//             e.preventDefault();
-//             trainName = $("#trainName").val();
-//             destination = $("#destination").val();
-//             firstTrain = $("#firstTrain").val();
-//             frequency = $("#frequency").val();
-
-
-
-//             database.ref("/train_name").push({
-//                 train_name: trainName,
-//                 train_destination: destination,
-//                 train_firstTrain: firstTrain,
-//                 train_frequency: frequency,
-//             });
-
-//         })
-
-//     })
 

@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-       <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
 
 
     <link rel="stylesheet" href="style.css">
@@ -18,7 +20,7 @@
 
 <body>
     <div class="container">
-            <div class="jumbotron bg-info">
+        <div class="jumbotron bg-info">
             <div class="title h1 text-center">Anytime is Train Time</div>
             <div class="title h3 text-center">Choo Choo. Chee Chee.</div>
         </div>
@@ -53,17 +55,17 @@
                     </div>
                     <div class="form-group">
                         <label for="destination"> Destination </label>
-                        <input type="text " class="form-control" id="Destination" aria-describedby="emailHelp"
-                        placeholder="">
+                        <input type="text " class="form-control" id="destination" aria-describedby="emailHelp"
+                            placeholder="">
                     </div>
                     <div class="form-group">
-                        <label for="firstTrain"> First Train Time (HH:MM-military time) </label>
-                        <input type="text " class="form-control" id="TrainName" aria-describedby="emailHelp"
-                         placeholder="">
+                        <label for="trainTime"> First Train Time (HH:MM-military time) </label>
+                        <input type="text " class="form-control" id="trainTime" aria-describedby="emailHelp"
+                            placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="frequency"> Frequency (min) </label>
-                        <input type="text " class="form-control" id="Frequency">
+                        <input type="text " id= "frequency" class="form-control">
                     </div>
                     <button class="btn btn-primary">Submit</button>
                     <button id="button"> please click me!</button>
@@ -74,9 +76,7 @@
         </div>
 
     </div>
-    <script type ="text/javascript" src ="app.js"></script>
-
-
+    <script type="text/javascript" src="app.js"></script>
 </body>
 
 
